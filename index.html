@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<a href="target1.html">Целевая таблица ДТП</a>
+<br>
+
+<a href="reference.html">Справочные таблицы</a>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <h1>Визитная карточка</h1>
+
+  <form>
+    <label for="fullname">ФИО:</label><br>
+    <input type="text" id="fullname" name="fullname" required><br><br>
+
+    <label for="birthdate">Дата рождения:</label><br>
+    <input type="date" id="birthdate" name="birthdate" required><br><br>
+
+    <label for="studentId">Номер зачетки:</label><br>
+    <input type="text" id="studentId" name="studentId" required><br><br>
+
+    <label for="gender">Пол:</label><br>
+    <input type="radio" id="male" name="gender" value="Мужской" required>
+    <label for="male">Мужской</label>
+    <input type="radio" id="female" name="gender" value="Женский" required>
+    <label for="female">Женский</label><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="grade">Оценка:</label><br>
+    <select id="grade" name="grade" required>
+      <option value="Отлично">Отлично</option>
+      <option value="Хорошо">Хорошо</option>
+      <option value="Удовлетворительно">Удовлетворительно</option>
+      <option value="Неудовлетворительно">Неудовлетворительно</option>
+    </select><br><br>
+
+    <input type="submit" value="Создать визитную карточку">
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const fullname = document.getElementById('fullname').value;
+      const birthdate = document.getElementById('birthdate').value;
+      const studentId = document.getElementById('studentId').value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const email = document.getElementById('email').value;
+      const grade = document.getElementById('grade').value;
+
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `
+        <h2>Визитная карточка</h2>
+        <p>ФИО: ${fullname}</p>
+        <p>Дата рождения: ${birthdate}</p>
+        <p>Номер зачетки: ${studentId}</p>
+        <p>Пол: ${gender}</p>
+        <p>Email: ${email}</p>
+        <p>Оценка: ${grade}</p>
+      `;
+    });
+  </script>
+
+</body>
+</html?
